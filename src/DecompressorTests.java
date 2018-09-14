@@ -72,15 +72,14 @@ class DecompressorTests
 	void TesDecompression5() throws IOException
 	{
 		String filename = "teste5.bin";
-		String expected = "ahhu lkaps\n" + 
+		String expected = "skjghsd sd 898\n" + 
 				"\n" + 
-				"    \n" + 
-				"(*ÂÂÂ*&*&\n" + 
+				"KUU78s\n" + 
 				"\n" + 
-				"8967 8ash*\n" + 
 				"\n" + 
-				"*-s&Â5sH\n" + 
-				"p";
+				"Sassd   s\n" + 
+				"\n" + 
+				"s";
 		String text = d.decompress(filename);
 		assertEquals(expected, text);
 	}
