@@ -65,7 +65,8 @@ public class Compressor
         String outName = filename.split("\\.")[0] + ".bin";
         OutputStream file_out = new FileOutputStream(outName); 
         file_out.write(code.toByteArray());
-        PrintWriter writer = new PrintWriter("dicionario.txt", "UTF-8");
+        String dicFilename = "dicionario_" + filename.split("\\.")[0] + ".txt";
+        PrintWriter writer = new PrintWriter(dicFilename, "UTF-8");
         for(Character c : encoding.keySet())
         {
             if(c == '\n') writer.println("barraN " + encoding.get(c));
