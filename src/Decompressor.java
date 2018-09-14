@@ -11,7 +11,7 @@ public class Decompressor
 		
 	}
 	
-	public void decompress(String filename) throws IOException
+	public String decompress(String filename) throws IOException
 	{
 		HashMap<String,Character> code = new HashMap<>();		
 		Path path1 = Paths.get(filename);
@@ -49,8 +49,13 @@ public class Decompressor
         		message= message + code.get(word);
         		word = "";
         	}
-        }
-        String outFilename = "decodificado_" + filename.split("\\.")[0] + ".txt";
+        } 
+        return message;
+	}
+	
+	public void writeInFile(String message, String filename) throws FileNotFoundException
+	{
+		String outFilename = "decodificado_" + filename.split("\\.")[0] + ".txt";
         PrintWriter writer = new PrintWriter(outFilename);
         writer.print(message);
         writer.close();

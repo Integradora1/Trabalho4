@@ -35,7 +35,8 @@ public class Huffman
 			    {
 			    	throw new IllegalArgumentException("Somente arquivos de extensão .bin suportados");
 			    }		
-			    d.decompress(filename);
+			    String msg = d.decompress(filename);
+			    d.writeInFile(msg, filename);
 			}
 		}
 		catch(IOException e)
