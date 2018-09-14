@@ -3,19 +3,12 @@ import java.io.*;
 
 public class Compressor
 {
-    public static void main(String args[]) throws IOException{
-        Scanner in = new Scanner(System.in);
-		System.out.println("Digite o nome do arquivo: ");
-        String filename = in.next();
-        if(!filename.split("\\.")[1].equals("txt"))
-        {
-        	throw new IllegalArgumentException("Somente arquivos de extensão .txt suportados");
-        }
-        HashMap<Character, String> encoding = encode(filename);
-        writeOutputFiles(filename, encoding);
+    public Compressor()
+    {
+    	
     }
     
-    public static HashMap<Character, String> encode(String filename) throws IOException
+    public HashMap<Character, String> encode(String filename) throws IOException
     {
     	InputStream file = new FileInputStream(filename); 
         BufferedReader br = new BufferedReader(new InputStreamReader(file)); 
@@ -38,7 +31,7 @@ public class Compressor
         return encoding;
     }
     
-    public static void writeOutputFiles(String filename, HashMap<Character, String> encoding) throws IOException
+    public void writeOutputFiles(String filename, HashMap<Character, String> encoding) throws IOException
     {
     	InputStream file2 = new FileInputStream(filename); 
         BufferedReader br2 = new BufferedReader(new InputStreamReader(file2)); 

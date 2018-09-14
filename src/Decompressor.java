@@ -3,21 +3,15 @@ import java.io.*;
 import java.nio.file.*;
 
 
-public class Decompressor{
+public class Decompressor
+{
 	
-	public static void main(String args[]) throws IOException{
+	public Decompressor()
+	{
 		
-		Scanner in = new Scanner(System.in);
-		System.out.println("Digite o nome do arquivo: ");
-	    String filename = in.next();	     
-	    if(!filename.split("\\.")[1].equals("bin"))
-	    {
-	    	throw new IllegalArgumentException("Somente arquivos de extensão .bin suportados");
-	    }		
-	    decompress(filename);
 	}
 	
-	public static void decompress(String filename) throws IOException
+	public void decompress(String filename) throws IOException
 	{
 		HashMap<String,Character> code = new HashMap<>();		
 		Path path1 = Paths.get(filename);
