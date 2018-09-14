@@ -9,7 +9,7 @@ public class Decompress{
 		
 		HashMap<String,Character> code = new HashMap<>();
 
-		Path path1 = Paths.get("saida.bin");
+		Path path1 = Paths.get("teste.bin");
 		byte[] byts =  Files.readAllBytes(path1);
 		int tamanho = byts.length * 8;
 		BitSet bits = new BitSet(tamanho);
