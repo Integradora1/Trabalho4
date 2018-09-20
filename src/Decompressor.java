@@ -16,15 +16,17 @@ public class Decompressor
 		HashMap<String,Character> code = new HashMap<>();		
 		Path path1 = Paths.get(filename);
 		byte[] byts =  Files.readAllBytes(path1);
-		int tamanho = byts.length * 8;
-		BitSet bits = new BitSet(tamanho);
+		BitSet bits = new BitSet();
 		bits = BitSet.valueOf(byts);
 		String dicFilename = "dicionario_" + filename.split("\\.")[0] + ".txt";
         InputStream file = new FileInputStream(dicFilename); 
-        BufferedReader br = new BufferedReader(new InputStreamReader(file));       
+        Scanner in = new Scanner(new InputStreamReader(file));       
         String next;
-        while((next = br.readLine()) != null)
-        {        	
+        int tam = 0;
+        if(in.hasNext()) tam = Integer.parseInt(in.nextLine());
+        while(in.hasNext())
+        {    
+        	next = in.nextLine();
             String[] elem = next.split(" ");            
             if (elem[0].equals("barraN")) 
             {
@@ -41,12 +43,12 @@ public class Decompressor
         }
         String message = "";
         String word = "";
-        for(int i = 0; i < tamanho; i++) 
+        for(int i = 0; i < tam; i++) 
         {
         	word = word + (bits.get(i) ? '1' : '0');
         	if (code.containsKey(word)) 
         	{
-        		message= message + code.get(word);
+        		message = message + code.get(word);
         		word = "";
         	}
         } 
